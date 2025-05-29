@@ -1,0 +1,14 @@
+
+
+
+**Admin Login Details**
+
+Username: admin@admin.com
+Password: password
+
+
+
+Username: user@user.com
+Password: passcode
+
+
