@@ -69,17 +69,17 @@ include 'connect/no_back.php';?>
                                 <div class="item">
                                     <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
                                     <h4 class="mb-1 text-white">Manage your Employees</h4>
-                                    <p>Centralized Human Resoures Management System.</p>
+                                    <p>Centralized AUMS.</p>
                                 </div>
                                 <div class="item">
                                     <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
                                     <h4 class="mb-1 text-white">Manage your Employees</h4>
-                                    <p>Centralized Human Resoures Management System.</p>
+                                    <p>Centralized AUMS.</p>
                                 </div>
                                 <div class="item">
                                     <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
                                     <h4 class="mb-1 text-white">Manage your Employees</h4>
-                                    <p>Centralized Human Resoures Management System.</p>
+                                    <p>Centralized AUMS.</p>
                                 </div>
                             </div>
                         </div>
