@@ -38,6 +38,7 @@ if(isset($_POST['submit'])){
                 $_SESSION['urole']      = $row['role'];
                 $_SESSION['ufirstname']      = $row['fname'];
                 $_SESSION['ulastname']      = $row['lname'];
+                $_SESSION['is_hod']      = $row['is_hod'];
 
                 if($role == "Admin")
                 {

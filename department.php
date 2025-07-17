@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
                                                 <td>
                                                     <div class="flex align-items-center list-user-action">
                                                       <?php if ($_SESSION['urole'] == "Admin"): ?>
-                                                      <a class="iq-bg-primary" title="Edit" href="update_department?id=<?= $deptid ?>"><i class="ri-pencil-line"></i></a>
+                                                      <!-- <a class="iq-bg-primary" title="Edit" href="update_department?id=<?= $deptid ?>"><i class="ri-pencil-line"></i></a> -->
                                                       <?php endif; ?>
                                                       <a class="iq-bg-info" data-toggle="modal" data-target="#viewMembersModal<?= $deptid ?>" title="View Members"><i class="ri-eye-line"></i></a>
                                                     </div>

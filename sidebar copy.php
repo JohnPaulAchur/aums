@@ -30,11 +30,7 @@
                         <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                            <li><a href="inbox"><i class="ri-edit-line"></i>Inbox </a></li>
                            <li><a href="compose_email"><i class="ri-inbox-line"></i>Compose Message</a></li>
-                           <?php if ($_SESSION['urole'] == "Director" ){ ?>
-                              <li><a href="create-memo"><i class="fa fa-plus"></i>Create Memo</a></li>
-                           <?php } ?>
-                                    
-                           <li><a href="manage-memo"><i class="ri-inbox-line"></i><?php if ($_SESSION['urole'] !== "Employee" ){ ?>Manage  <?php } ?> Memos</a></li>
+                           <li><a href="compose_email"><i class="ri-inbox-line"></i>Create Memo</a></li>
                         </ul>
                      </li>
 
@@ -112,7 +108,17 @@
                      <!-- <li><a href="calendar.html" class="iq-waves-effect"><i class="lab la-buffer"></i><span>Training</span></a></li> -->
                     
 
-                     
+                     <li>
+                        <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-users"></i><span>Groups</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        <?php if ($_SESSION['urole'] == "Admin"): ?>
+                              <li><a href="create-group"><i class="fa fa-group"></i>Create</a></li>
+                        <?php endif; ?>
+                           <li><a href="group-list"><i class="fa fa-list"></i>Group List</a></li>
+                           <!-- <li><a href="ui-alerts.html"><i class="ri-alert-line"></i>Alerts</a></li> -->
+                           
+                        </ul>
+                     </li>
                      <?php if ($_SESSION['urole'] == "Admin"): ?>
                                                 
                            <li>

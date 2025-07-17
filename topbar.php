@@ -6,31 +6,62 @@ $uid = $_SESSION['uid'];
 $uEmail = $_SESSION['uemail'];
 
 
+// if ($uEmail) {
+//    // Connect to the database
+//    $pdo = dbConnect();
+
+//    // Prepare and execute query to get employee id by email
+//    $sql = "SELECT id FROM employee WHERE email = :email LIMIT 1";
+//    $stmt = $pdo->prepare($sql);
+//    $stmt->execute(['email' => $uEmail]);
+
+//    // Fetch the employee id
+//    $empuid = $stmt->fetchColumn();
+
+//    if ($empuid) {
+//        // Employee id found
+//        $_SESSION['empuid'] = $empuid;
+//       //  echo "Employee ID: " . $empuid;
+//    } else {
+//        // No employee found
+//       //  echo "No employee found with email: " . htmlspecialchars($uEmail);
+//        $empuid = null;
+//    }
+// } else {
+//    // echo "User email not set in session.";
+//    $empuid = null;
+// }
+
+
+
+
 if ($uEmail) {
    // Connect to the database
    $pdo = dbConnect();
 
-   // Prepare and execute query to get employee id by email
-   $sql = "SELECT id FROM employee WHERE email = :email LIMIT 1";
+   // Prepare and execute query to get employee record by email
+   $sql = "SELECT * FROM employee WHERE email = :email LIMIT 1";
    $stmt = $pdo->prepare($sql);
    $stmt->execute(['email' => $uEmail]);
 
-   // Fetch the employee id
-   $empuid = $stmt->fetchColumn();
+   // Fetch the employee record
+   $employee = $stmt->fetch(PDO::FETCH_ASSOC);
 
-   if ($empuid) {
-       // Employee id found
-       $_SESSION['empuid'] = $empuid;
-      //  echo "Employee ID: " . $empuid;
+   if ($employee) {
+       // Employee found
+       $_SESSION['empuid'] = $employee['id'];
+       $authUserDept = $employee['dept']; 
+       $_SESSION['empDept'] = $authUserDept; 
    } else {
        // No employee found
-      //  echo "No employee found with email: " . htmlspecialchars($uEmail);
        $empuid = null;
+       $authUserDept = null;
    }
 } else {
-   // echo "User email not set in session.";
    $empuid = null;
+   $authUserDept = null;
 }
+
 
 ?>
 <div class="iq-top-navbar">
@@ -122,7 +153,11 @@ if ($uEmail) {
                            <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user">
                            <div class="caption">
                               <h6 class="mb-0 line-height text-white"><td><?php echo $firstname ?></td></h6>
-                              <span class="font-size-12 text-white">Available</span>
+                              <?php if ($_SESSION['urole'] == "Director"){ ?>
+                                 <span class="font-size-12 text-white">Director</span>
+                              <?php }else{ ?>
+                                 <span class="font-size-12 text-white">Available</span>
+                              <?php } ?>
                            </div>
                         </a>
                         <div class="iq-sub-dropdown iq-user-dropdown">
@@ -130,7 +165,12 @@ if ($uEmail) {
                               <div class="iq-card-body p-0 ">
                                  <div class="bg-primary p-3">
                                     <h5 class="mb-0 text-white line-height">Hello <td><?php echo $firstname ?></td></h5>
-                                    <span class="text-white font-size-12">Available</span>
+                                    <?php if ($_SESSION['urole'] == "Director"){ ?>
+                                       <span class="text-white font-size-12">Director of Administration</span>
+                                    <?php }else{ ?>
+                                       <span class="text-white font-size-12">Available</span>
+                                    <?php } ?>
+
                                  </div>
 
                                  <?php if ($_SESSION['urole'] !== "company"){ ?>
