@@ -31,7 +31,7 @@
                                 $uEmail = $_SESSION['uemail'];
 
                                 if (in_array($role, ['Admin', 'Director'])) {
-                                    $stmt = dbConnect()->prepare("SELECT * FROM memos ORDER BY id DESC");
+                                    $stmt = dbConnect()->prepare("SELECT * FROM memos WHERE archived=0 ORDER BY id DESC");
                                     $stmt->execute();
                                 } else {
                                     // Get dept_id of logged-in employee
@@ -40,10 +40,10 @@
                                     $empData = $getDept->fetch();
                                     $dept_id = $empData['dept'] ?? 0;
                                     if($_SESSION['is_hod']==1){
-                                        $stmt = dbConnect()->prepare("SELECT * FROM memos WHERE dept_id = ? ORDER BY id DESC");
+                                        $stmt = dbConnect()->prepare("SELECT * FROM memos WHERE dept_id = ? AND archived=0 ORDER BY id DESC");
                                         $stmt->execute([$dept_id]);
                                     }else{
-                                        $stmt = dbConnect()->prepare("SELECT * FROM memos WHERE dept_id = ? AND status='Actioned' ORDER BY id DESC");
+                                        $stmt = dbConnect()->prepare("SELECT * FROM memos WHERE dept_id = ? AND status='Actioned' AND archived=0 ORDER BY id DESC");
                                         $stmt->execute([$dept_id]);
                                     }
 
