@@ -38,7 +38,7 @@
                         </ul>
                      </li>
 
-                     <?php if ($_SESSION['urole'] == "Admin"): ?>
+                     <?php if ($_SESSION['urole'] == "Admin" || $_SESSION['urole'] == "HR"): ?>
                               <li>
                                  <a href="#userinfo" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="las la-users"></i><span>Employees</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                  <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
@@ -60,7 +60,7 @@
                      <li>
                         <a href="#map-page" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-archive-drawer-line"></i><span>Leave</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                         <ul id="map-page" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                           <?php if ($_SESSION['urole'] == "Admin"): ?>
+                           <?php if ($_SESSION['urole'] == "Admin" || $_SESSION['urole'] == "HR"): ?>
                               <li><a href="add_leave_category"><i class="ri-clockwise-line"></i>Leave Type</a></li>
                            <?php endif; ?>
                            <!-- <li><a href="view_leave_category"><i class="ri-clockwise-line"></i>View Leave Type</a></li> -->
@@ -71,14 +71,14 @@
                      <li>
                         <a href="#wizard-form" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-archive-drawer-line"></i><span>Complaint</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                         <ul id="wizard-form" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        <?php if ($_SESSION['urole'] == "Admin"): ?>
+                        <?php if ($_SESSION['urole'] == "Admin" || $_SESSION['urole'] == "HR"): ?>
                               <li><a href="new_complaint_type"><i class="ri-clockwise-line"></i>Add Complaint Type</a></li>
                         <?php endif; ?>
                            <li><a href="add_new_complaint"><i class="ri-clockwise-2-line"></i>Create New</a></li>
                         </ul>
                      </li>
                      <!-- <li><a href="calendar.html" class="iq-waves-effect"><i class="las la-file-invoice-dollar"></i><span>Payroll</span></a></li> -->
-                     <?php if ($_SESSION['urole'] == "Admin"): ?>
+                     <?php if ($_SESSION['urole'] == "Admin" || $_SESSION['urole'] == "HR"): ?>
                                                
                            <li>
                               <a href="#authentication" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="las la-file-invoice-dollar"></i><span>Payroll</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
@@ -113,7 +113,7 @@
                     
 
                      
-                     <?php if ($_SESSION['urole'] == "Admin"): ?>
+                     <?php if ($_SESSION['urole'] == "Admin" || $_SESSION['urole'] == "HR"): ?>
                                                 
                            <li>
                               <a href="#userinfo12" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="las la-users"></i><span>Clients/Company</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
